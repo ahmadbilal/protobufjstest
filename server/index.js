@@ -18,13 +18,14 @@ const server = Https.createServer({
     passphrase: 'protobufjstest'
 }, app)
 
-const wss = new WebSocket.Server({ server });
+const wss = new WebSocket.Server({ server })
+
 wss.on('connection', function connection(ws) {
     ws.on('message', function incoming(message) {
         console.log('received: %s', message)
-    });
+    })
 
-    var message = new proto.TestMessage();
+    var message = new proto.TestMessage()
 
     message.setSometext('Hello Protocol Buffers')
 
